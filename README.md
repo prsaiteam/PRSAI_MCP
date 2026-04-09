@@ -14,6 +14,20 @@
 官网首页（支持拖拽上传，支持 `.ppt/.pptx`，最大 100MB）：
 
 [![PrsAi Staging 官网首页](./image.png)](https://prsai.cc/)
+
+## 翻译效果对比
+
+将翻译前/翻译后对比图放到 `./assets/` 后，README 会自动展示效果：
+
+| 翻译前（中文） | 翻译后（英文） |
+| --- | --- |
+| ![翻译前（中文）](./assets/translation-before.png) | ![翻译后（英文）](./assets/translation-after.png) |
+
+说明：
+
+- 目标是尽量保持原 PPT 的版式、字体、配色、图表与重点标注样式不变
+- 适用于需要“格式保持 + 批量翻译”的 PPT 场景，减少手工排版调整成本
+
 ## 获取 API Key
 
 
