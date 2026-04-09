@@ -66,31 +66,6 @@ python -m prs_ai_staging_mcp
 prs-ai-staging-mcp
 ```
 
-## Trae 接入配置
-
-在 Trae 的 MCP 配置中（点击设置 -> Workspace -> MCP，或直接编辑配置），添加如下 JSON 配置：
-
-```json
-{
-  "mcpServers": {
-    "prs-ai-staging-mcp": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP",
-        "run",
-        "prs-ai-staging-mcp"
-      ],
-      "env": {
-        "PRS_AI_MCP_API_KEY": "请替换为您的真实API_KEY",
-        "PRS_AI_MCP_BASE_URL": "https://prsai.cc"
-      }
-    }
-  }
-}
-```
-
-
 ## 第三方接入（Trae / OpenClaw / Codex / ClaudeCode / Coze）
 
 本项目提供的是 MCP Server。只要第三方工具支持 MCP（stdio 方式启动本地进程），就可以按同一套参数接入：
@@ -123,11 +98,11 @@ prs-ai-staging-mcp
 }
 ```
 
-## OpenClaw
+## OpenClaw 接入配置
 
 在 OpenClaw 的「工具 / 插件 / MCP Servers」新增一个自定义 MCP Server（stdio），填入上面的 command/args/env 即可。
 
-## Codex
+## Codex 接入配置
 
 Codex 支持通过 CLI 添加 MCP Server，或直接编辑 `~/.codex/config.toml`（或项目内 `.codex/config.toml`）。你可以按下述方式添加一个 stdio Server：
 
@@ -139,7 +114,7 @@ codex mcp add prsai-ppt-translation \
   --env PRS_AI_MCP_BASE_URL=https://prsai.cc
 ```
 
-## ClaudeCode
+## ClaudeCode 接入配置
 
 在 ClaudeCode 的 MCP Servers 配置中新增一个 stdio Server（字段名通常也是 `mcpServers`），command/args/env 与 Trae 配置保持一致即可：
 
@@ -163,7 +138,7 @@ codex mcp add prsai-ppt-translation \
 }
 ```
 
-## Coze
+## Coze 接入配置
 
 如果你使用的是 Coze 工作流/插件的 HTTP 调用方式（而不是 MCP），也可以直接请求对应接口：
 
