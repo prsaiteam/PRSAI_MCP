@@ -1,3 +1,4 @@
+# Prsai_Mcp
 # PrsAi Staging MCP
 
 提供两个 MCP 工具：
@@ -7,13 +8,21 @@
 
 `translate_ppt` 返回中会补充 `outppt_url`，格式为 `{base_url}/#/progress/{data}`（域名从 `PRS_AI_MCP_BASE_URL` 获取）。
 
+## 使用前必读：注册并获取 API Key
+
+`translate_ppt`（PPT 翻译）等 MCP 接口调用需要 `API Key` 鉴权。请先前往官网 https://staging.prsai.cc/ 注册并登录，在个人中心/控制台申请 `API Key` 后再使用本 MCP。
+
+官网首页（支持拖拽上传，支持 `.ppt/.pptx`，最大 100MB）：
+
+[![PrsAi Staging 官网首页](./image.png)](https://staging.prsai.cc/)
 ## 获取 API Key
 
-使用前需要先申请 `API Key`：
+
+使用前需要先在 PrsAi Staging 官网申请 `API Key`（用于调用 MCP 接口鉴权）：
 
 1. 访问 https://staging.prsai.cc/
 2. 注册并登录账号
-3. 在站内申请/获取 `API Key`
+3. 进入个人中心/控制台，申请并复制 `API Key`
 
 拿到 `API Key` 后，你可以：
 
