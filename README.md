@@ -71,7 +71,7 @@ prs-ai-staging-mcp
 本项目提供的是 MCP Server。只要第三方工具支持 MCP（stdio 方式启动本地进程），就可以按同一套参数接入：
 
 - **command**：`uv`
-- **args**：`["--directory", "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP", "run", "prs-ai-staging-mcp"]`
+- **args**：`["--directory", "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP", "run", "prs-ai-staging-mcp"]`
 - **env**：`PRS_AI_MCP_API_KEY`（必填）、`PRS_AI_MCP_BASE_URL=https://prsai.cc`（可选）
 
 ## Trae 接入配置
@@ -85,7 +85,7 @@ prs-ai-staging-mcp
       "command": "uv",
       "args": [
         "--directory",
-        "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP",
+        "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP",
         "run",
         "prs-ai-staging-mcp"
       ],
@@ -111,7 +111,7 @@ OpenClaw 配置示例：
       "command": "uv",
       "args": [
         "--directory",
-        "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP",
+        "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP",
         "run",
         "prs-ai-staging-mcp"
       ],
@@ -132,7 +132,7 @@ Codex 支持通过 CLI 添加 MCP Server，或直接编辑 `~/.codex/config.toml
 ```bash
 codex mcp add prsai-ppt-translation \
   --command uv \
-  --args --directory /absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP run prs-ai-staging-mcp \
+  --args --directory /absolute/path/to/Prsai_Mcp/PPT-Translation-MCP run prs-ai-staging-mcp \
   --env PRS_AI_MCP_API_KEY=你的API_KEY \
   --env PRS_AI_MCP_BASE_URL=https://prsai.cc
 ```
@@ -148,7 +148,7 @@ codex mcp add prsai-ppt-translation \
       "command": "uv",
       "args": [
         "--directory",
-        "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP",
+        "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP",
         "run",
         "prs-ai-staging-mcp"
       ],
@@ -177,4 +177,4 @@ codex mcp add prsai-ppt-translation \
 }
 ```
 
-*注意：使用前请确保已安装* *`uv`，并将* *`--directory`* *后的路径替换为您本地实际的* *`Ppt-Translation-MCP`* *绝对路径。*
+*注意：使用前请确保已安装* *`uv`，并将* *`--directory`* *后的路径替换为您本地实际的* *`PPT-Translation-MCP`* *绝对路径。*
