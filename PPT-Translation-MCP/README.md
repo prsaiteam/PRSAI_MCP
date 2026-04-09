@@ -1,5 +1,4 @@
 # Prsai_Mcp
-# PrsAi Staging MCP
 
 提供两个 MCP 工具：
 

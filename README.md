@@ -1,9 +1,8 @@
 # Prsai_Mcp
-# PrsAi Staging MCP
 
 提供两个 MCP 工具：
 
-- `upload_file`：上传本地文件到 `https://staging.prsai.cc/api/mcp/file/upload`
+- `upload_file`：上传本地文件到 `https://prsai.cc/api/mcp/file/upload`
 - `translate_ppt`：创建翻译任务 `https://prsai.cc/api/mcp/ppt/task/add`
 
 `translate_ppt` 返回中会补充 `outppt_url`，格式为 `{base_url}/#/progress/{data}`（域名从 `PRS_AI_MCP_BASE_URL` 获取）。
@@ -20,7 +19,7 @@
 
 使用前需要先在 PrsAi Staging 官网申请 `API Key`（用于调用 MCP 接口鉴权）：
 
-1. 访问 https://staging.prsai.cc/
+1. 访问 https://prsai.cc/
 2. 注册并登录账号
 3. 进入个人中心/控制台，申请并复制 `API Key`
 
