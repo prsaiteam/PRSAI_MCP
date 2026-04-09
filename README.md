@@ -14,9 +14,9 @@
 
 官网首页（支持拖拽上传，支持 `.ppt/.pptx`，最大 100MB）：
 
-[![PrsAi Staging 官网首页](https://staging.prsai.cc/assets/octopus_bg-DXnMvT_9.png)](https://staging.prsai.cc/)
-
+[![PrsAi Staging 官网首页](./image.png)](https://staging.prsai.cc/)
 ## 获取 API Key
+
 
 使用前需要先在 PrsAi Staging 官网申请 `API Key`（用于调用 MCP 接口鉴权）：
 
