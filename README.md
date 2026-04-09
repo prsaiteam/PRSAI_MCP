@@ -1,4 +1,4 @@
-# Prsai\_Mcp
+# Prsai_Mcp
 
 提供两个 MCP 工具：
 
@@ -9,11 +9,11 @@
 
 ## 使用前必读：注册并获取 API Key
 
-`translate_ppt`（PPT 翻译）等 MCP 接口调用需要 `API Key` 鉴权。请先前往官网 <https://prsai.cc/> 注册并登录，在个人中心/控制台申请 `API Key` 后再使用本 MCP。
+`translate_ppt`（PPT 翻译）等 MCP 接口调用需要 `API Key` 鉴权。请先前往官网 https://prsai.cc/ 注册并登录，在个人中心/控制台申请 `API Key` 后再使用本 MCP。
 
 官网首页（支持拖拽上传，支持 `.ppt/.pptx`，最大 100MB）：
 
-[!\[PrsAi PPT 翻译 MCP 官网首页\](./image.png )](https://prsai.cc/)
+[![PrsAi PPT 翻译 MCP 官网首页](./image.png)](https://prsai.cc/)
 
 ## 翻译效果对比
 
@@ -21,7 +21,7 @@
 
 | 翻译前（中文）                                            | 翻译后（英文）                                           |
 | -------------------------------------------------- | ------------------------------------------------- |
-| !\[翻译前（中文）]\(./assets/translation-before.png ) | !\[翻译后（英文）]\(./assets/translation-after.png ) |
+| ![翻译前（中文）](./assets/translation-before.png) | ![翻译后（英文）](./assets/translation-after.png) |
 
 说明：
 
@@ -45,7 +45,7 @@
 
 可选环境变量：
 
-- `PRS_AI_MCP_API_KEY`：默认 api\_key（等价于接口参数 `mcpToken`）
+- `PRS_AI_MCP_API_KEY`：默认 api_key（等价于接口参数 `mcpToken`）
 - `PRS_AI_MCP_BASE_URL`：默认 `https://prsai.cc`
 
 `PRS_AI_MCP_API_KEY` 的读取顺序：tool 入参 `api_key` → 环境变量 `PRS_AI_MCP_API_KEY` → 项目根目录 `.env`。
