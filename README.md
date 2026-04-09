@@ -100,11 +100,30 @@ prs-ai-staging-mcp
 
 ## OpenClaw 接入配置
 
-在 OpenClaw 的「工具 / 插件 / MCP Servers」新增一个自定义 MCP Server（stdio），填入上面的 command/args/env 即可。
+在 OpenClaw 的「工具 / 插件 / MCP Servers」新增一个自定义 MCP Server（stdio），填入上面的 command/args/env 即可；或者将github项目地址直接丢给 OpenClaw。
 
-- **command**：`uv`
-- **args**：`["--directory", "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP", "run", "prs-ai-staging-mcp"]`
-- **env**：`PRS_AI_MCP_API_KEY`（必填）、`PRS_AI_MCP_BASE_URL=https://prsai.cc`（可选）
+OpenClaw 配置示例：
+
+```json
+{
+  "mcpServers": {
+    "prs-ai-staging-mcp": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP",
+        "run",
+        "prs-ai-staging-mcp"
+      ],
+      "env": {
+        "PRS_AI_MCP_API_KEY": "请替换为您的真实API_KEY",
+        "PRS_AI_MCP_BASE_URL": "https://prsai.cc"
+      }
+    }
+  }
+}
+```
+
 
 ## Codex 接入配置
 
