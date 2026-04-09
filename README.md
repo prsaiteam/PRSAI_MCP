@@ -13,7 +13,7 @@
 
 官网首页（支持拖拽上传，支持 `.ppt/.pptx`，最大 100MB）：
 
-<a href="https://prsai.cc/"><img src="./image.png" alt="PrsAi PPT 翻译 MCP 官网首页" width="720"></a>
+<a href="https://prsai.cc/"><img src="./assets/home.png" alt="PrsAi PPT 翻译 MCP 官网首页" width="720"></a>
 
 ## 翻译效果对比
 
@@ -77,7 +77,7 @@ prs-ai-staging-mcp
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/yanjiaqi/yanjiaqi/01-代码项目/MyCode/PrsAi_PPT_Translation_MCP/PrsAiStaging-MCP",
+        "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP",
         "run",
         "prs-ai-staging-mcp"
       ],
@@ -90,4 +90,93 @@ prs-ai-staging-mcp
 }
 ```
 
-*注意：使用前请确保已安装* *`uv`，并将* *`--directory`* *后的路径替换为您本地实际的* *`PrsAiStaging-MCP`* *绝对路径。*
+
+## 第三方接入（Trae / OpenClaw / Codex / ClaudeCode / Coze）
+
+本项目提供的是 MCP Server。只要第三方工具支持 MCP（stdio 方式启动本地进程），就可以按同一套参数接入：
+
+- **command**：`uv`
+- **args**：`["--directory", "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP", "run", "prs-ai-staging-mcp"]`
+- **env**：`PRS_AI_MCP_API_KEY`（必填）、`PRS_AI_MCP_BASE_URL=https://prsai.cc`（可选）
+
+## Trae 接入配置
+
+在 Trae 的 MCP 配置中（点击设置 -> Workspace -> MCP，或直接编辑配置），添加如下 JSON 配置：
+
+```json
+{
+  "mcpServers": {
+    "prs-ai-staging-mcp": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP",
+        "run",
+        "prs-ai-staging-mcp"
+      ],
+      "env": {
+        "PRS_AI_MCP_API_KEY": "请替换为您的真实API_KEY",
+        "PRS_AI_MCP_BASE_URL": "https://prsai.cc"
+      }
+    }
+  }
+}
+```
+
+## OpenClaw
+
+在 OpenClaw 的「工具 / 插件 / MCP Servers」新增一个自定义 MCP Server（stdio），填入上面的 command/args/env 即可。
+
+## Codex
+
+Codex 支持通过 CLI 添加 MCP Server，或直接编辑 `~/.codex/config.toml`（或项目内 `.codex/config.toml`）。你可以按下述方式添加一个 stdio Server：
+
+```bash
+codex mcp add prsai-ppt-translation \
+  --command uv \
+  --args --directory /absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP run prs-ai-staging-mcp \
+  --env PRS_AI_MCP_API_KEY=你的API_KEY \
+  --env PRS_AI_MCP_BASE_URL=https://prsai.cc
+```
+
+## ClaudeCode
+
+在 ClaudeCode 的 MCP Servers 配置中新增一个 stdio Server（字段名通常也是 `mcpServers`），command/args/env 与 Trae 配置保持一致即可：
+
+```json
+{
+  "mcpServers": {
+    "prsai-ppt-translation": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP",
+        "run",
+        "prs-ai-staging-mcp"
+      ],
+      "env": {
+        "PRS_AI_MCP_API_KEY": "你的API_KEY",
+        "PRS_AI_MCP_BASE_URL": "https://prsai.cc"
+      }
+    }
+  }
+}
+```
+
+## Coze
+
+如果你使用的是 Coze 工作流/插件的 HTTP 调用方式（而不是 MCP），也可以直接请求对应接口：
+
+- 上传文件：`POST https://prsai.cc/api/mcp/file/upload`（multipart/form-data：`file` + `mcpToken`）
+- 创建翻译任务：`POST https://prsai.cc/api/mcp/ppt/task/add`
+
+```json
+{
+  "translateLanguage": "en",
+  "pptUrl": "上传后返回的URL",
+  "mcpToken": "你的API_KEY",
+  "fileOriginalName": "demo.pptx"
+}
+```
+
+*注意：使用前请确保已安装* *`uv`，并将* *`--directory`* *后的路径替换为您本地实际的* *`Ppt-Translation-MCP`* *绝对路径。*
