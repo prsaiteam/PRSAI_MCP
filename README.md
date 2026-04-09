@@ -13,7 +13,7 @@
 
 官网首页（支持拖拽上传，支持 `.ppt/.pptx`，最大 100MB）：
 
-[!\[PrsAi PPT 翻译 MCP 官网首页\](./image.png null)](https://prsai.cc/)
+[!\[PrsAi PPT 翻译 MCP 官网首页\](./image.png )](https://prsai.cc/)
 
 ## 翻译效果对比
 
@@ -21,7 +21,7 @@
 
 | 翻译前（中文）                                            | 翻译后（英文）                                           |
 | -------------------------------------------------- | ------------------------------------------------- |
-| !\[翻译前（中文）]\(./assets/translation-before.png null) | !\[翻译后（英文）]\(./assets/translation-after.png null) |
+| !\[翻译前（中文）]\(./assets/translation-before.png ) | !\[翻译后（英文）]\(./assets/translation-after.png ) |
 
 说明：
 
