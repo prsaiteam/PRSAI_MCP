@@ -26,6 +26,7 @@ MCP calls (including PPT translation via `translate_ppt`) require an `API Key` f
 Homepage (drag-and-drop upload, `.ppt/.pptx`, max 100MB):
 
 <a href="https://prsai.cc/"><img src="./assets/home.png" alt="PrsAi PPT Translation MCP - Homepage" width="720"></a>
+<a href="https://prsai.cc/"><img src="./assets/apikey.png" alt="PrsAi PPT Translation MCP API Key Request Page" width="720"></a>
 
 ## Translation Before/After
 

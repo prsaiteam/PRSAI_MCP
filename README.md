@@ -26,6 +26,7 @@
 官网首页（支持拖拽上传，支持 `.ppt/.pptx`，最大 100MB）：
 
 <a href="https://prsai.cc/"><img src="./assets/home.png" alt="PrsAi PPT 翻译 MCP 官网首页" width="720"></a>
+<a href="https://prsai.cc/"><img src="./assets/apikey.png" alt="PrsAi PPT 翻译 MCP API Key 申请页面" width="720"></a>
 
 ## 翻译效果对比
 
