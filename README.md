@@ -102,6 +102,10 @@ prs-ai-staging-mcp
 
 在 OpenClaw 的「工具 / 插件 / MCP Servers」新增一个自定义 MCP Server（stdio），填入上面的 command/args/env 即可。
 
+- **command**：`uv`
+- **args**：`["--directory", "/absolute/path/to/Prsai_Mcp/Ppt-Translation-MCP", "run", "prs-ai-staging-mcp"]`
+- **env**：`PRS_AI_MCP_API_KEY`（必填）、`PRS_AI_MCP_BASE_URL=https://prsai.cc`（可选）
+
 ## Codex 接入配置
 
 Codex 支持通过 CLI 添加 MCP Server，或直接编辑 `~/.codex/config.toml`（或项目内 `.codex/config.toml`）。你可以按下述方式添加一个 stdio Server：
