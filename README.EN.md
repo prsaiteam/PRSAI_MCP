@@ -7,10 +7,10 @@ Professional grade LLM-powered PPTX translation agent with constraint-aware text
 Generic LLM products (Claude Code, Gemini, GPT, Manus, 豆包, etc.) can translate PPTX but lack fine-grained control over formatting and layout constraints. This agent is purpose-built for high-fidelity results:
 
 - **Semantic-level formatting preservation** — run mapping by meaning, not position. Bold, color, and highlights stay on the correct words even when word order changes across languages.
-- **Constraint-aware text fitting** — character budgets derived from actual bounding boxes, with script-aware width ratios and multi-pass overflow resolution.
+- **Constraint-aware text fitting** — character budgets derived from actual bounding boxes and script analysis, handle with multiple overflow resolution strategies.
 - **Complex object support** — translates text inside diagrams, tables, and charts, not just shapes and text boxes.
 - **Automatic RTL alignment** — auto-adjusts text direction and alignment when translating to/from Hebrew, Arabic, and other right-to-left languages.
-- **Third-party plugin support** — partial support for think-cell elements (smart chart objects).
+- **Third-party plugin support** — partial support for 3rd party plugins like think-cell elements (smart chart objects).
 
 This MCP server exposes two tools:
 
