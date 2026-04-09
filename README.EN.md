@@ -1,4 +1,3 @@
-# Prsai_PPT_Translation_Mcp
 # PPT Translator Agent
 
 Professional grade LLM-powered PPTX translation agent with constraint-aware text fitting. Translates presentations while preserving formatting, layout, and visual integrity.

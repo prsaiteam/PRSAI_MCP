@@ -1,4 +1,3 @@
-# Prsai_PPT_Translation_Mcp
 # PPT Translator Agent
 
 专业级、由大模型驱动的 PPTX 翻译 Agent，具备“约束感知”的文本拟合能力：在翻译演示文稿的同时，尽量保持原有格式、版式与视觉一致性。
