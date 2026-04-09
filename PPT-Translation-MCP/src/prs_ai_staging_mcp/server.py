@@ -46,7 +46,7 @@ def read_dotenv_value(key: str) -> str:
 
 
 def get_base_url() -> str:
-    return os.getenv("PRS_AI_MCP_BASE_URL", "https://staging.prsai.cc").rstrip("/")
+    return os.getenv("PRS_AI_MCP_BASE_URL", "https://prsai.cc").rstrip("/")
 
 
 def resolve_api_key(api_key: Optional[str]) -> str:
