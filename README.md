@@ -1,4 +1,4 @@
-# Prsai_Mcp
+# Prsai_PPT_Translation_Mcp
 
 提供两个 MCP 工具：
 
