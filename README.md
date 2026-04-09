@@ -100,7 +100,7 @@ prs-ai-staging-mcp
 
 ## OpenClaw 接入配置
 
-在 OpenClaw 的「工具 / 插件 / MCP Servers」新增一个自定义 MCP Server（stdio），填入上面的 command/args/env 即可；或者将github项目地址直接丢给 OpenClaw。
+在 OpenClaw 的「工具 / 插件 / MCP Servers」新增一个自定义 MCP Server（stdio），填入上面的 command/args/env 即可；或者将github项目地址直接丢给 OpenClaw，由 OpenClaw 自动拉取项目代码，安装依赖。
 
 OpenClaw 配置示例：
 
