@@ -79,12 +79,38 @@ Or via the script entry:
 prs-ai-staging-mcp
 ```
 
+## Deploy with Docker
+
+If you want to deploy this MCP server to your own server (to provide remote services via HTTP SSE, or simply to run it in an isolated container), you can use the provided Docker configurations.
+
+### 1. Using Docker Compose (Recommended)
+
+1. Navigate to the `PPT-Translation-MCP` directory
+2. Create or edit the `.env` file and insert your `PRS_AI_MCP_API_KEY`
+3. Run the service:
+
+```bash
+cd PPT-Translation-MCP
+docker-compose up -d
+```
+
+By default, this will start an SSE (Server-Sent Events) service on port `8000` of your server. You can then connect remote Agents (like Dify, OpenClaw, or other SSE-supported tools) to this MCP via `http://<YOUR_SERVER_IP>:8000/sse`.
+
+### 2. Using Pure Docker Commands
+
+If you only need to run it as a local containerized stdio server (e.g., to be called by Cursor/Trae):
+
+```bash
+docker build -t prsai-ppt-mcp ./PPT-Translation-MCP
+docker run -i --rm -e PRS_AI_MCP_API_KEY="YOUR_API_KEY" prsai-ppt-mcp
+```
+
 ## Third-Party Integrations (Trae / OpenClaw / Codex / ClaudeCode / Coze)
 
 This project is an MCP Server. Any client/tool that supports MCP (stdio mode) can integrate using the same parameters:
 
 - **command**: `uv`
-- **args**: `["--directory", "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP", "run", "prs-ai-staging-mcp"]`
+- **args**: `["--directory", "/absolute/path/to/<YOUR_REPO_DIR>/PPT-Translation-MCP", "run", "prs-ai-staging-mcp"]`
 - **env**: `PRS_AI_MCP_API_KEY` (required), `PRS_AI_MCP_BASE_URL=https://prsai.cc` (optional)
 
 ## Trae Integration
@@ -98,7 +124,7 @@ In Trae’s MCP configuration (Settings → Workspace → MCP, or edit the confi
       "command": "uv",
       "args": [
         "--directory",
-        "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP",
+        "/absolute/path/to/<YOUR_REPO_DIR>/PPT-Translation-MCP",
         "run",
         "prs-ai-staging-mcp"
       ],
@@ -124,7 +150,7 @@ Example configuration:
       "command": "uv",
       "args": [
         "--directory",
-        "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP",
+        "/absolute/path/to/<YOUR_REPO_DIR>/PPT-Translation-MCP",
         "run",
         "prs-ai-staging-mcp"
       ],
@@ -144,7 +170,7 @@ Codex can add MCP servers via the CLI, or you can edit `~/.codex/config.toml` (o
 ```bash
 codex mcp add prsai-ppt-translation \
   --command uv \
-  --args --directory /absolute/path/to/Prsai_Mcp/PPT-Translation-MCP run prs-ai-staging-mcp \
+  --args --directory /absolute/path/to/<YOUR_REPO_DIR>/PPT-Translation-MCP run prs-ai-staging-mcp \
   --env PRS_AI_MCP_API_KEY=YOUR_API_KEY \
   --env PRS_AI_MCP_BASE_URL=https://prsai.cc
 ```
@@ -160,7 +186,7 @@ In ClaudeCode’s MCP Servers config (the root field is commonly `mcpServers`), 
       "command": "uv",
       "args": [
         "--directory",
-        "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP",
+        "/absolute/path/to/<YOUR_REPO_DIR>/PPT-Translation-MCP",
         "run",
         "prs-ai-staging-mcp"
       ],
@@ -192,4 +218,3 @@ If you are using Coze workflows/plugins via HTTP (instead of MCP), you can call 
 Progress page: `https://prsai.cc/#/progress/{task_id}`
 
 *Note: Make sure `uv` is installed, and replace the `--directory` path with your local absolute path to `PPT-Translation-MCP`.*
-

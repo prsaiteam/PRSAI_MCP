@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  prsai-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: prsai-ppt-mcp:latest
+    container_name: prsai-ppt-mcp
+    ports:
+      # 如果你需要通过网络 (SSE) 访问此 MCP 服务，请映射 8000 端口
+      - "8000:8000"
+    environment:
+      # 必填：在此处填入你在 https://prsai.cc 获取的 API Key
+      - PRS_AI_MCP_API_KEY=${PRS_AI_MCP_API_KEY:-your_api_key_here}
+      - PRS_AI_MCP_BASE_URL=https://prsai.cc
+    # 默认命令：FastMCP 支持通过命令行参数指定使用 SSE 传输并绑定 host/port
+    # 如果你想作为本地 stdio 运行，请删除下面这行 command
+    command: ["--transport", "sse", "--port", "8000", "--host", "0.0.0.0"]
+    restart: unless-stopped

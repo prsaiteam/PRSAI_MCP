@@ -79,12 +79,38 @@ python -m prs_ai_staging_mcp
 prs-ai-staging-mcp
 ```
 
+## Docker 部署到服务器运行
+
+如果你想将此 MCP 服务部署到自己的服务器上（以 HTTP SSE 方式提供远程服务，或单纯使用容器化运行），可以直接使用仓库中提供的 Docker 配置。
+
+### 1. 使用 Docker Compose（推荐）
+
+1. 进入 `PPT-Translation-MCP` 目录
+2. 修改或创建 `.env` 文件，填入你的 `PRS_AI_MCP_API_KEY`
+3. 运行服务：
+
+```bash
+cd PPT-Translation-MCP
+docker-compose up -d
+```
+
+默认会在服务器的 `8000` 端口开启 SSE（Server-Sent Events）服务，你可以在远程 Agent（如 Dify、OpenClaw 等支持 SSE 的工具）里通过 `http://<你的服务器IP>:8000/sse` 连接此 MCP。
+
+### 2. 使用纯 Docker 命令
+
+如果你只需本地容器化运行 stdio 模式（供 Cursor/Trae 调用）：
+
+```bash
+docker build -t prsai-ppt-mcp ./PPT-Translation-MCP
+docker run -i --rm -e PRS_AI_MCP_API_KEY="你的API_KEY" prsai-ppt-mcp
+```
+
 ## 第三方接入（Trae / OpenClaw / Codex / ClaudeCode / Coze）
 
 本项目提供的是 MCP Server。只要第三方工具支持 MCP（stdio 方式启动本地进程），就可以按同一套参数接入：
 
 - **command**：`uv`
-- **args**：`["--directory", "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP", "run", "prs-ai-staging-mcp"]`
+- **args**：`["--directory", "/absolute/path/to/<你的仓库目录>/PPT-Translation-MCP", "run", "prs-ai-staging-mcp"]`
 - **env**：`PRS_AI_MCP_API_KEY`（必填）、`PRS_AI_MCP_BASE_URL=https://prsai.cc`（可选）
 
 ## Trae 接入配置
@@ -98,7 +124,7 @@ prs-ai-staging-mcp
       "command": "uv",
       "args": [
         "--directory",
-        "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP",
+        "/absolute/path/to/<你的仓库目录>/PPT-Translation-MCP",
         "run",
         "prs-ai-staging-mcp"
       ],
@@ -124,7 +150,7 @@ OpenClaw 配置示例：
       "command": "uv",
       "args": [
         "--directory",
-        "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP",
+        "/absolute/path/to/<你的仓库目录>/PPT-Translation-MCP",
         "run",
         "prs-ai-staging-mcp"
       ],
@@ -145,7 +171,7 @@ Codex 支持通过 CLI 添加 MCP Server，或直接编辑 `~/.codex/config.toml
 ```bash
 codex mcp add prsai-ppt-translation \
   --command uv \
-  --args --directory /absolute/path/to/Prsai_Mcp/PPT-Translation-MCP run prs-ai-staging-mcp \
+  --args --directory /absolute/path/to/<你的仓库目录>/PPT-Translation-MCP run prs-ai-staging-mcp \
   --env PRS_AI_MCP_API_KEY=你的API_KEY \
   --env PRS_AI_MCP_BASE_URL=https://prsai.cc
 ```
@@ -161,7 +187,7 @@ codex mcp add prsai-ppt-translation \
       "command": "uv",
       "args": [
         "--directory",
-        "/absolute/path/to/Prsai_Mcp/PPT-Translation-MCP",
+        "/absolute/path/to/<你的仓库目录>/PPT-Translation-MCP",
         "run",
         "prs-ai-staging-mcp"
       ],
