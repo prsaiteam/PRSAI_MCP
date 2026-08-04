@@ -12,12 +12,20 @@
 - **自动 RTL 对齐** —— 在希伯来语、阿拉伯语等右向左语言互译时，自动调整文本方向与对齐方式。
 - **第三方插件支持** —— 部分兼容 think-cell 等第三方插件（智能图表对象）。
 
-提供两个 MCP 工具：
+提供四个 MCP 工具：
 
 - `upload_file`：上传本地文件到 `https://prsai.cc/api/mcp/file/upload`
 - `translate_ppt`：创建翻译任务 `https://prsai.cc/api/mcp/ppt/task/add`
+- `get_ppt_task_status`：查询翻译任务状态 `https://prsai.cc/api/mcp/ppt/task/plan`
+- `download_ppt`：下载已完成的 PPT `https://prsai.cc/api/mcp/ppt/task/download`
 
 `translate_ppt` 返回中会补充 `outppt_url`，格式为 `{base_url}/#/progress/{data}`（域名从 `PRS_AI_MCP_BASE_URL` 获取）。
+
+`get_ppt_task_status` 仅返回 `pptId`、`status` 和 `translateLanguage`。`status` 取值：0 待处理、1 处理中、2 已完成、3 已失败。
+
+> 轮询说明：翻译耗时较长。调用 `translate_ppt` 创建任务后，应先等待至少 60 秒再首次调用 `get_ppt_task_status`。如果状态为 0 或 1，每次等待至少 60 秒后再查询，直到状态变为 2 或 3，不要频繁轮询。
+
+`download_ppt` 接收 `ppt_id` 和可选的 `output_path`，下载后返回本地 `file_path` 和 `file_size`。
 
 ## 使用前必读：注册并获取 API Key
 
